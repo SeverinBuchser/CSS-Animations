@@ -4,7 +4,8 @@ var MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
     entry: {
-        'index' : __dirname + '/src/index.js'
+        'index' : __dirname + '/src/index.js',
+        'index.react' : __dirname + '/src/index.react.js'
     },
     output: {
         filename: '[name].js',
@@ -16,6 +17,16 @@ module.exports = {
     target : 'web',
     module: {
         rules: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['react']
+                    }
+                }
+            },
             {
                 test: /\.html$/,
                 use: [
@@ -31,21 +42,22 @@ module.exports = {
                 loader: 'json-loader'
             },
             {
-                test: /\.css$/,
+                test: /\.(css|sass|scss)?$/,
                 use: [
-                    MiniCssExtractPlugin.loader,
-                    "css-loader"
+                  MiniCssExtractPlugin.loader,
+                  {
+                      loader: "css-loader",
+                      options: {
+                          minimize: {
+                              safe: true
+                          }
+                      }
+                  },
+                  {
+                      loader: "sass-loader",
+                      options: {}
+                  }
                 ]
-            },
-            {
-                test: /\.(sass|scss)?$/,
-                use: [{
-                    loader: "style-loader"
-                }, {
-                    loader: "css-loader"
-                }, {
-                    loader: "sass-loader"
-                }]
             },
             {
                 test: /\.(jpe?g|png|gif|eot|woff|woff2|ttf|svg||otf)?$/i,
@@ -80,6 +92,8 @@ module.exports = {
         new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery',
+            React: 'react',
+            ReactDOM: 'react-dom'
         }),
         new MiniCssExtractPlugin({
             filename: "[name].css",

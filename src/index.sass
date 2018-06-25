@@ -1,0 +1,30 @@
+@import ~bootstrap/scss/bootstrap.scss
+@import ~./sass/variables.sass
+@import ~./sass/navigation.sass
+@import ~./sass/content.sass
+
+html, body
+  background: $theme-bg
+  display: flex
+  justify-content: center
+
+  .body-wrapper
+    min-width: 90vw
+    max-width: 90vw
+
+  .head
+    padding-bottom: 0
+
+  .nav
+    padding-bottom: $spacer*2
+
+  .content
+    padding-bottom: $spacer*2
+
+  .head
+    display: flex
+    justify-content: center
+    color: $theme-bg
+    background: $primary
+    margin-top: $spacer
+    margin-bottom: $spacer*2

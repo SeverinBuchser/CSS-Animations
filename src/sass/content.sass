@@ -1,0 +1,44 @@
+@import ~./animations/icons.sass
+@import ~./animations/icon-1.sass
+@import ~./animations/icon-2.sass
+@import ~./animations/icon-3.sass
+@import ~./animations/icon-4.sass
+@import ~./animations/icon-5.sass
+@import ~./animations/icon-6.sass
+@import ~./animations/icon-7.sass
+@import ~./animations/icon-8.sass
+@import ~./animations/icon-9.sass
+@import ~./animations/icon-10.sass
+@import ~./animations/icon-11.sass
+
+.content
+  display: grid
+  grid-gap: $spacer/2
+  grid-template-columns: repeat(10, 1fr)
+  grid-template-rows: repeat(10, 1fr)
+  color: $theme-color
+
+  & > div
+    border: 1px solid $theme-color
+    height: 150px
+    padding: $spacer
+
+=mediaScreenContent ($max-width, $columns)
+  @media screen and (max-width: $max-width)
+    .content
+      grid-template-columns: repeat($columns, 1fr)
+      grid-template-rows: repeat(10, 1fr)
+
++mediaScreenContent (1500px, 14)
++mediaScreenContent (1400px, 13)
++mediaScreenContent (1300px, 12)
++mediaScreenContent (1200px, 11)
++mediaScreenContent (1100px, 10)
++mediaScreenContent (1000px, 9)
++mediaScreenContent (900px, 8)
++mediaScreenContent (800px, 7)
++mediaScreenContent (700px, 6)
++mediaScreenContent (600px, 5)
++mediaScreenContent (500px, 4)
++mediaScreenContent (400px, 3)
++mediaScreenContent (300px, 2)

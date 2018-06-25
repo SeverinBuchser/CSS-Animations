@@ -1,0 +1,30 @@
+.icon-6
+  height: 100%
+  width: 100%
+  position: absolute
+  top: 0
+  left: 0
+
+  &::before
+    content: ""
+    display: block
+    left: 10%
+    top: 37%
+    width: 80%
+    height: 70%
+    position: absolute
+    border: 1px solid $theme-bg
+    border-top: none
+
+  &::after
+    content: ""
+    display: block
+    left: 10%
+    top: 10%
+    width: 80%
+    height: 80%
+    position: absolute
+    border:
+      top: 1px solid $theme-bg
+      right: 1px solid $theme-bg
+    transform: rotate(-45deg)

@@ -1,0 +1,29 @@
+.icon-5
+  height: 100%
+  width: 100%
+  position: absolute
+  top: 0
+  left: 0
+
+  &::before
+    content: ""
+    display: block
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    position: absolute
+    background: $theme-bg
+    border: 1px solid $theme-bg
+    border-radius: 50%
+
+  &::after
+    content: ""
+    display: block
+    left: 0
+    top: 0
+    width: 50%
+    height: 50%
+    position: absolute
+    background: $theme-bg
+    transform: rotate(67.5deg+45deg) translate(90%, -35%) skewX(45deg) scaleY(0.707)

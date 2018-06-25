@@ -1,7 +1,7 @@
 {
-  "name": "css-animations",
+  "name": "css-animations-icons",
   "version": "1.0.0",
-  "description": "Playground for CSS-Animations",
+  "description": "Playground for CSS-Icons and CSS-Animations",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --open",
@@ -10,12 +10,19 @@
   },
   "author": "Severin Buchser",
   "license": "ISC",
+  "repositry": "https://github.com/SeverinBuchser/CSS-Animations",
   "dependencies": {
     "bootstrap": "^4.1.1",
     "jquery": "^3.3.1",
-    "popper.js": "^1.14.3"
+    "popper.js": "^1.14.3",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
   },
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.11",
     "file-loader": "^1.1.11",
     "html-loader": "^0.5.5",
@@ -24,7 +31,6 @@
     "mini-css-extract-plugin": "^0.4.0",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.0.3",
-    "style-loader": "^0.21.0",
     "webpack": "^4.12.0",
     "webpack-cli": "^3.0.8",
     "webpack-dev-server": "^3.1.4"
