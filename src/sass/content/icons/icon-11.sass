@@ -1,0 +1,36 @@
+.icon-11
+  left: 0
+  top: 0
+  width: 50%
+  height: 50%
+  border: 1px solid $content-icon-color
+  border-top: none
+  border-left: none
+  position: absolute
+  transform: translate(50%, 50%) rotate(45deg)
+
+  &::before
+    content: ""
+    display: block
+    left: 0
+    top: -50%
+    width: calc(100% + 1px)
+    height: calc(50% + 1px)
+    position: absolute
+    border: 1px solid $content-icon-color
+    border-bottom: none
+    border-top-left-radius: 50% 100%
+    border-top-right-radius: 50% 100%
+
+  &::after
+    content: ""
+    display: block
+    top: 0
+    left: -50%
+    width: calc(50% + 1px)
+    height: calc(100% + 1px)
+    position: absolute
+    border: 1px solid $content-icon-color
+    border-right: none
+    border-top-left-radius: 100% 50%
+    border-bottom-left-radius: 100% 50%

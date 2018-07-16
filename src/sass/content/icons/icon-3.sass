@@ -1,0 +1,42 @@
+=icon3Colors ($name, $value)
+  .icon-3-#{$name}
+    height: 100%
+    width: 100%
+    position: absolute
+    top: 0
+    left: 0
+
+    &::before
+      content: ""
+      display: block
+      left: 0
+      top: 0
+      width: 100%
+      height: 100%
+      position: absolute
+      border: 1px solid $value
+      border-radius: 50%
+
+@each $name, $value in $theme-one-colors
+  +icon3Colors($name, $value)
+
+=icon3Colors ($value)
+  .icon-3
+    height: 100%
+    width: 100%
+    position: absolute
+    top: 0
+    left: 0
+
+    &::before
+      content: ""
+      display: block
+      left: 0
+      top: 0
+      width: 100%
+      height: 100%
+      position: absolute
+      border: 1px solid $value
+      border-radius: 50%
+
++icon3Colors($content-icon-color)

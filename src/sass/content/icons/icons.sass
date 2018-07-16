@@ -1,0 +1,33 @@
+.icon
+  display: block
+  position: relative
+  background: none
+  border: 1px solid $content-icon-border
+  border-radius: 5px
+  padding: $spacer
+  color: $content-icon-text-color
+  cursor: pointer
+
+  .icon-flex
+    margin-top: $spacer
+    margin-bottom: $spacer
+    display: flex
+    justify-content: center
+
+    .icon-wrapper
+      width: 50%
+      padding-top: 50%
+      position: relative
+
+  .icon-line
+    margin-top: $spacer*2
+    background: $content-icon-line-bg
+
+  .icon-name
+    font-weight: 100
+    text-align: center
+
+
+@import ~./inactive/icon_inactive.sass
+@import ~./active/icon_active.sass
+@import ~./background/icon_background_circle.sass

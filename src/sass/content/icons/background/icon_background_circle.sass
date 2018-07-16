@@ -1,0 +1,23 @@
+
+=iconBackgroundCircle ($nameOuter, $valueOuter, $nameInner, $valueInner)
+  .icon-background-circle-#{$nameInner}-#{$nameOuter}
+    .icon-flex
+      .icon-wrapper
+          &::before
+            content: ""
+            position: absolute
+            top: -35%
+            left: -35%
+            width: 170%
+            height: 170%
+            border-radius: 50%
+            background: $valueInner
+            transition: box-shadow 0.2s ease-out
+
+          &:hover
+            &::before
+              box-shadow: 0 0 0 5px lighten($valueOuter, 10%)
+
+@each $nameOuter, $valueOuter in $theme-one-colors
+  @each $nameInner, $valueInner in $theme-one-colors
+    +iconBackgroundCircle($nameOuter, $valueOuter, $nameInner, $valueInner)

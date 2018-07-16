@@ -1,6 +1,8 @@
 var HTMLWebpackPlugin = require('html-webpack-plugin');
 var webpack = require("webpack");
 var MiniCssExtractPlugin = require("mini-css-extract-plugin");
+//var UglifyJSPlugin = require("uglifyjs-webpack-plugin");
+// var BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 module.exports = {
     entry: {
@@ -23,7 +25,9 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['react']
+                        presets: [
+                          'react'
+                        ]
                     }
                 }
             },
@@ -44,7 +48,7 @@ module.exports = {
             {
                 test: /\.(css|sass|scss)?$/,
                 use: [
-                  MiniCssExtractPlugin.loader,
+                  process.env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
                   {
                       loader: "css-loader",
                       options: {
@@ -98,6 +102,8 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: "[name].css",
             chunkFilename: "[id].css"
-        })
+        })//,
+        //new UglifyJSPlugin(),
+        // new BundleAnalyzerPlugin()
     ]
 };

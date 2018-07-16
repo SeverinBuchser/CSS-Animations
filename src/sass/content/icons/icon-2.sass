@@ -1,0 +1,59 @@
+.icon-2
+  height: 5%
+  width: 100%
+  position: absolute
+  top: 0
+  left: 0
+  background: $content-icon-color
+
+  &::before
+    content: ""
+    display: block
+    left: 0
+    width: 100%
+    height: 100%
+    position: absolute
+    background: $content-icon-color
+    transform: translateY(950%)
+
+  &::after
+    content: ""
+    display: block
+    left: 0
+    width: 100%
+    height: 100%
+    position: absolute
+    background: $content-icon-color
+    transform: translateY(1900%)
+
+=icon2Colors ($name, $value)
+  .icon-2-#{$name}
+    height: 5%
+    width: 100%
+    position: absolute
+    top: 0
+    left: 0
+    background: $value
+
+    &::before
+      content: ""
+      display: block
+      left: 0
+      width: 100%
+      height: 100%
+      position: absolute
+      background: $value
+      transform: translateY(950%)
+
+    &::after
+      content: ""
+      display: block
+      left: 0
+      width: 100%
+      height: 100%
+      position: absolute
+      background: $value
+      transform: translateY(1900%)
+
+@each $name, $value in $theme-one-colors
+  +icon2Colors($name, $value)

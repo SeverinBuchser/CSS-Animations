@@ -1,41 +1,47 @@
 class Icons extends React.Component {
   constructor () {
     super();
-    this.IconInformation = require("./icons-information.js")
+
+    this.IconInformation = require("./icons_information.js")
+    this.IconActive = require("./icon_active.js")
+    this.IconInactive = require("./icon_inactive.js")
+    this.eventHandlerClick = this.eventHandlerClick.bind(this)
+
+    this.state = {
+      IconActive : null
+    }
+  }
+
+  eventHandlerClick (IconNumber) {
+    this.setState((prevState) => {
+      let newState = prevState
+      newState.IconActive = prevState.IconActive == IconNumber ? null : IconNumber
+      return newState
+    })
+    $("body").toggleClass("body-bg-icon-active")
+    this.forceUpdate()
   }
 
   renderIcons () {
     let foo = new Array();
     for (let i in this.IconInformation){
-      let tags = new String();
-      for (let j in this.IconInformation[i].tags){
-        if (j == 0){
-          tags += this.IconInformation[i].tags[j]
-        }else{
-          tags += "  "+this.IconInformation[i].tags[j]
-        }
-      }
       foo.push(
-        <div className={"icon"} key={i}>
-          <div className={"icon-flex"}>
-            <div className={"icon-wrapper"}>
-              <div className={"icon-"+i} tags={tags}></div>
-            </div>
-          </div>
-          <hr className={"bg-white"} />
-          <div className={"icon-name"}>
-            {this.IconInformation[i].name}
-          </div>
-        </div>
+        <this.IconInactive key={i} IconInformation={this.IconInformation} Number={i} eventHandlerClick={this.eventHandlerClick}/>
       )
     }
     return foo
   }
 
+  renderIcon () {
+    return (
+      <this.IconActive IconInformation={this.IconInformation} Number={this.state.IconActive} eventHandlerClick={this.eventHandlerClick}/>
+    )
+  }
+
   render () {
     return (
-      <div className={"content"}>
-        {this.renderIcons()}
+      <div className={"content content-icon-"+ (this.state.IconActive == null? "inactive" : "active")}>
+        {this.state.IconActive == null? this.renderIcons() : this.renderIcon()}
       </div>
     )
   }

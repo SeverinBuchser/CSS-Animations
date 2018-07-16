@@ -1,0 +1,57 @@
+.icon-1
+  height: 100%
+  width: 100%
+  position: absolute
+  top: 0
+  left: 0
+
+  &::before
+    content: ""
+    display: block
+    left: 47.5%
+    width: 5%
+    height: 100%
+    position: absolute
+    background: $content-icon-color
+    transform: rotate(-45deg)
+
+  &::after
+    content: ""
+    display: block
+    left: 47.5%
+    width: 5%
+    height: 100%
+    position: absolute
+    background: $content-icon-color
+    transform: rotate(45deg)
+
+=icon1Colors ($name, $value)
+  .icon-1-#{$name}
+    height: 100%
+    width: 100%
+    position: absolute
+    top: 0
+    left: 0
+
+    &::before
+      content: ""
+      display: block
+      left: 47.5%
+      width: 5%
+      height: 100%
+      position: absolute
+      background: $value
+      transform: rotate(-45deg)
+
+    &::after
+      content: ""
+      display: block
+      left: 47.5%
+      width: 5%
+      height: 100%
+      position: absolute
+      background: $value
+      transform: rotate(45deg)
+
+@each $name, $value in $theme-one-colors
+  +icon1Colors($name, $value)
